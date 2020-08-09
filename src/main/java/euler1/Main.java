@@ -6,7 +6,9 @@ import java.util.stream.Stream;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println( specialSumOfNumbers(10));
+        System.out.println( specialSumOfNumbers(11));
+
+
     }
 
     public static int specialSumOfNumbers(int numberLimit) {
@@ -17,15 +19,15 @@ public class Main {
         return Stream.iterate(3, number -> number + 3)
                 .limit(1000)
                 .filter(number -> number < numberLimit)
-                .reduce(3, (integer, integer2) -> integer + integer2);
+                .reduce(0, Integer::sum);
 
     }
 
     public static int specialSumOf5(int numberLimit) {
-        return Stream.iterate(5, number -> number + 3)
+        return Stream.iterate(5, number -> number + 5)
                 .limit(1000)
                 .filter(number -> number < numberLimit)
-                .reduce(5, (integer, integer2) -> integer + integer2);
+                .reduce(0, Integer::sum);
 
     }
 }
