@@ -14,9 +14,9 @@ public class Main {
         BigInteger fibonacciSum =
 
                 Stream.iterate(new BigInteger[]{BigInteger.ZERO, BigInteger.ONE}, f -> new BigInteger[]{f[1], f[0].add(f[1])})
-                        .limit(600)
+                        .limit(900)
                         .map(t -> t[0])
-                        .filter(Main::isLessThat4Mln)
+                        .filter(Main::isLessThen4Mln)
                         .filter(Main::isEven)
                         .reduce(BigInteger.ZERO, BigInteger::add);
 
@@ -24,7 +24,7 @@ public class Main {
 
     }
 
-    private static boolean isLessThat4Mln(BigInteger number) {
+    private static boolean isLessThen4Mln(BigInteger number) {
         return number.compareTo(BigInteger.valueOf(4000000)) < 0;
     }
 
