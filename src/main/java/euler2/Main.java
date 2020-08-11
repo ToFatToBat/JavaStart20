@@ -11,16 +11,10 @@ public class Main {
     public static void main(String[] args) {
 
 
-        BigInteger fibonacciSum =
 
-                Stream.iterate(new BigInteger[]{BigInteger.ZERO, BigInteger.ONE}, f -> new BigInteger[]{f[1], f[0].add(f[1])})
-                        .limit(900)
-                        .map(t -> t[0])
-                        .filter(Main::isLessThen4Mln)
-                        .filter(Main::isEven)
-                        .reduce(BigInteger.ZERO, BigInteger::add);
 
-        System.out.println(fibonacciSum);
+
+    System.out.println(fibonacciSum(4));
 
 //        Integer sumEvenFibonacciNumbers = fibonacciWhile(5).stream()
 //                .filter(x -> x % 2 == 0)
@@ -28,6 +22,17 @@ public class Main {
 //
 //        System.out.println(sumEvenFibonacciNumbers);
 
+
+    }
+
+    public static BigInteger fibonacciSum(int iterationLimit) {
+        BigInteger fibonacciSum = Stream.iterate(new BigInteger[]{BigInteger.ZERO, BigInteger.ONE}, f -> new BigInteger[]{f[1], f[0].add(f[1])})
+                .limit(iterationLimit + 2)
+                .map(t -> t[0])
+                .filter(Main::isLessThen4Mln)
+                .filter(Main::isEven)
+                .reduce(BigInteger.ZERO, BigInteger::add);
+        return fibonacciSum;
     }
 
     private static boolean isLessThen4Mln(BigInteger number) {
@@ -37,8 +42,6 @@ public class Main {
     private static boolean isEven(BigInteger number) {
         return number.mod(BigInteger.valueOf(2)).equals(BigInteger.ZERO);
     }
-
-
 
 
 //    private static List<Integer> fibonacciWhile(int listLengh) {
@@ -51,7 +54,6 @@ public class Main {
 //            fibonacciNumbers.add(fibonacciNumber);
 //        }return fibonacciNumbers;
 //    }
-
 
 
 }
