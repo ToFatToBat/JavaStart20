@@ -22,6 +22,12 @@ public class Main {
 
         System.out.println(fibonacciSum);
 
+//        Integer sumEvenFibonacciNumbers = fibonacciWhile(5).stream()
+//                .filter(x -> x % 2 == 0)
+//                .reduce(0, Integer::sum);
+//
+//        System.out.println(sumEvenFibonacciNumbers);
+
     }
 
     private static boolean isLessThen4Mln(BigInteger number) {
@@ -31,6 +37,23 @@ public class Main {
     private static boolean isEven(BigInteger number) {
         return number.mod(BigInteger.valueOf(2)).equals(BigInteger.ZERO);
     }
+
+
+
+
+//    private static List<Integer> fibonacciWhile(int listLengh) {
+//        List<Integer> fibonacciNumbers = new ArrayList<>();
+//        fibonacciNumbers.add(1);
+//        fibonacciNumbers.add(2);
+//
+//        while (fibonacciNumbers.size() < listLengh) {
+//            int fibonacciNumber = fibonacciNumbers.get(fibonacciNumbers.size() - 1) + fibonacciNumbers.get(fibonacciNumbers.size());
+//            fibonacciNumbers.add(fibonacciNumber);
+//        }return fibonacciNumbers;
+//    }
+
+
+
 }
 
 
