@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println( specialSumOfNumbers(11));
+        System.out.println(specialSumOfNumbers(1000));
 
 
     }
@@ -16,7 +16,7 @@ public class Main {
     }
 
     public static int specialSumOf3(int numberLimit) {
-        return Stream.iterate(3, number -> number + 3)
+        return Stream.iterate(0, number -> number + 3)
                 .limit(1000)
                 .filter(number -> number < numberLimit)
                 .reduce(0, Integer::sum);
