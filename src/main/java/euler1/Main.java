@@ -7,8 +7,6 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println(specialSumOfNumbers(1000));
-
-
     }
 
     public static int specialSumOfNumbers(int numberLimit) {
@@ -20,7 +18,6 @@ public class Main {
                 .limit(1000)
                 .filter(number -> number < numberLimit)
                 .reduce(0, Integer::sum);
-
     }
 
     public static int specialSumOf5(int numberLimit) {
@@ -28,6 +25,5 @@ public class Main {
                 .limit(1000)
                 .filter(number -> number < numberLimit)
                 .reduce(0, Integer::sum);
-
     }
 }

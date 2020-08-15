@@ -20,9 +20,6 @@ public class MainTest {
         BigInteger expected = BigInteger.valueOf(2);
 
         assertEquals(expected, result);
-
-
-
     }
 
     @Test
@@ -37,9 +34,6 @@ public class MainTest {
         BigInteger expected = BigInteger.valueOf(10);
 
         assertEquals(expected, result);
-
-
-
     }
 
     @Test
@@ -54,8 +48,5 @@ public class MainTest {
         BigInteger expected = BigInteger.valueOf(44);
 
         assertEquals(expected, result);
-
-
-
     }
 }
