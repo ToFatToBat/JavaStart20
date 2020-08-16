@@ -11,17 +11,51 @@ public class Main {
     public static void main(String[] args) {
 
 
-        int fibonacciSum =
-                Stream.iterate(new int[]{0, 1}, f -> new int[]{f[1], f[0] + f[1]})
-                        .limit(500)
-                        .map(t -> t[0])
-                        .filter(numLessThenFourMil -> numLessThenFourMil < 4000000)
-                        .filter(evenNumbers -> evenNumbers % 2 == 0)
-                        .mapToInt(Integer::intValue)
-                        .sum();
-//                .forEach(System.out::println);
-        System.out.println(fibonacciSum);
+
+
+
+    System.out.println(fibonacciSum(4));
+
+//        Integer sumEvenFibonacciNumbers = fibonacciWhile(5).stream()
+//                .filter(x -> x % 2 == 0)
+//                .reduce(0, Integer::sum);
+//
+//        System.out.println(sumEvenFibonacciNumbers);
+
+
+    }
+
+    public static BigInteger fibonacciSum(int iterationLimit) {
+        BigInteger fibonacciSum = Stream.iterate(new BigInteger[]{BigInteger.ZERO, BigInteger.ONE}, f -> new BigInteger[]{f[1], f[0].add(f[1])})
+                .limit(iterationLimit + 2)
+                .map(t -> t[0])
+                .filter(Main::isLessThen4Mln)
+                .filter(Main::isEven)
+                .reduce(BigInteger.ZERO, BigInteger::add);
+        return fibonacciSum;
+    }
+
+    private static boolean isLessThen4Mln(BigInteger number) {
+        return number.compareTo(BigInteger.valueOf(4000000)) < 0;
+    }
+
+    private static boolean isEven(BigInteger number) {
+        return number.mod(BigInteger.valueOf(2)).equals(BigInteger.ZERO);
     }
 
 
+//    private static List<Integer> fibonacciWhile(int listLengh) {
+//        List<Integer> fibonacciNumbers = new ArrayList<>();
+//        fibonacciNumbers.add(1);
+//        fibonacciNumbers.add(2);
+//
+//        while (fibonacciNumbers.size() < listLengh) {
+//            int fibonacciNumber = fibonacciNumbers.get(fibonacciNumbers.size() - 1) + fibonacciNumbers.get(fibonacciNumbers.size());
+//            fibonacciNumbers.add(fibonacciNumber);
+//        }return fibonacciNumbers;
+//    }
+
+
 }
+
+
